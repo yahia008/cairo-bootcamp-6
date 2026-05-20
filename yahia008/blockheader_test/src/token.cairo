@@ -124,7 +124,7 @@ pub mod erc20 {
     }
     
     // Adjusted limit assuming 18 decimals for context, tweak as needed!
-    const MAX_LIMIT: u256 = 10000; 
+    const MAX_LIMIT: u256 = 10000_u256; 
 
     #[constructor]
     fn constructor(
@@ -136,6 +136,7 @@ pub mod erc20 {
         symbol: felt252,
         admin: ContractAddress,
     ) {
+        assert(admin.is_non_zero(), Errors::ZERO_ADDRESS);
         self.name.write(name);
         self.symbol.write(symbol);
         self.decimals.write(decimals);
@@ -277,6 +278,8 @@ pub mod erc20 {
         fn _transfer(
             ref self: ContractState, sender: ContractAddress, recipient: ContractAddress, amount: u256,
         ) {
+            assert(sender.is_non_zero(), Errors::ZERO_ADDRESS);
+            assert(recipient.is_non_zero(), Errors::ZERO_ADDRESS);
             let sender_balance = self.balances.read(sender);
             self.balances.write(sender, sender_balance - amount);
             self.balances.write(recipient, self.balances.read(recipient) + amount);
