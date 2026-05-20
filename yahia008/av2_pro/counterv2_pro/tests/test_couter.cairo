@@ -132,7 +132,6 @@ use starknet::SyscallResultTrait;
         assert!(counter.get_count() == 0, "Count should reach exactly 0");
     }
 
-
     #[test]
     #[should_panic]
     fn test_decrease_count_below_zero_panics() {
