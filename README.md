@@ -2,12 +2,11 @@
 
 A secure ERC-20 token implementation on StarkNet with administrative controls, transfer restrictions, and burn functionality.
 
-
-File-path yahia008/blockheader_test
-File-path yahia008/assignment_1
-file-path yahia008/assignment_2
-File-path yahia008/av2_pro
-
+* **File-path:** `yahia008/blockheader_test`
+* **File-path:** `yahia008/assignment_1`
+* **File-path:** `yahia008/assignment_2`
+* **File-path:** `yahia008/av2_pro`
+  
 ## Overview
 
 This contract extends standard ERC-20 behavior with admin-managed safeguards. It is designed for cases where token movement must follow configurable rules, while still supporting the usual transfer and allowance flows.
